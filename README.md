@@ -19,9 +19,8 @@ application was promising but inconclusive in GSE212787 (ROC-AUC 0.738; 95% CI
 95% CI 0.000-0.500). This heterogeneity is a central result, not a hidden
 failure.
 
-Read the illustrated [final research report](docs/FINAL_RESEARCH_REPORT.md), the
-[portfolio summary](docs/PORTFOLIO_SUMMARY.md), or the
-[LinkedIn draft](docs/LINKEDIN_POST.md).
+Read the illustrated [final research report](docs/FINAL_RESEARCH_REPORT.md) or
+the [portfolio summary](docs/PORTFOLIO_SUMMARY.md).
 
 ![Cross-cohort interpretability summary](docs/assets/07_interpretability.png)
 
