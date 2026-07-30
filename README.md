@@ -21,6 +21,14 @@ failure.
 Read the illustrated [final research report](docs/FINAL_RESEARCH_REPORT.md) or
 the [portfolio summary](docs/PORTFOLIO_SUMMARY.md).
 
+## Project at a glance
+
+<p align="center">
+  <img src="docs/social-media/linkedin_01_pipeline.png" width="31%" alt="EndoSignature-Net research pipeline">
+  <img src="docs/social-media/linkedin_02_auc_comparison.png" width="31%" alt="Internal and external ROC-AUC comparison">
+  <img src="docs/social-media/linkedin_03_stability_vs_transfer.png" width="31%" alt="Internal coefficient stability versus external consistency">
+</p>
+
 ![Cross-cohort interpretability summary](docs/assets/07_interpretability.png)
 
 ## Technical Approach
