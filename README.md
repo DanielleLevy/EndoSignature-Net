@@ -2,7 +2,6 @@
 
 **A leakage-aware, multi-cohort transcriptomics study of endometriosis**
 
-> Project status: **research complete; portfolio-ready**.
 
 EndoSignature-Net integrates single-cell RNA sequencing, bulk RNA sequencing,
 and microarray cohorts to discover, validate, model, and interpret a compact
