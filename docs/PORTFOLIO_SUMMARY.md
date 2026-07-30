@@ -51,16 +51,3 @@ diagnostic test. The negative replication and interpretability audit show that
 endometrial transcriptomic biomarkers are strongly affected by cohort, tissue,
 cycle, and platform context.
 
-## CV-ready bullets
-
-- Developed an end-to-end Python pipeline integrating scRNA-seq, bulk RNA-seq,
-  and microarray cohorts for endometriosis biomarker research.
-- Implemented patient-level pseudobulk analysis, repeated nested
-  cross-validation, external-cohort QC gates, bootstrap uncertainty, and model
-  interpretability.
-- Benchmarked linear, nonlinear, ensemble, and neural architectures; selected an
-  interpretable 12-gene L2-logistic model with internal ROC-AUC 0.860.
-- Conducted locked cross-platform replication in independent cohorts and
-  localized transfer failure to cross-cohort gene-direction heterogeneity.
-- Built a tested, documented research codebase with 69 automated tests.
-
