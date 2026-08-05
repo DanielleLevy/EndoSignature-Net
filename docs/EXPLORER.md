@@ -4,6 +4,9 @@ The Explorer is a read-only Streamlit application for communicating the
 completed EndoSignature-Net study. It presents aggregate, frozen research
 results and never retrains or retunes the model.
 
+**Public deployment:**
+[https://endosignature-explorer.streamlit.app/](https://endosignature-explorer.streamlit.app/)
+
 ## Run locally
 
 ```bash
@@ -26,4 +29,3 @@ rerunning and reviewing the underlying analyses.
 
 The application is a research communication artifact, not a diagnostic or
 clinical decision-support tool.
-

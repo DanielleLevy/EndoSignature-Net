@@ -32,6 +32,8 @@ interactive research narrative: cross-cohort performance, gene-level direction
 changes, interpretability, cycle and cell-composition sensitivity, metadata
 missingness, and explicit claim boundaries.
 
+**Live app:** [endosignature-explorer.streamlit.app](https://endosignature-explorer.streamlit.app/)
+
 ```bash
 python build_explorer_data.py
 streamlit run streamlit_app.py
