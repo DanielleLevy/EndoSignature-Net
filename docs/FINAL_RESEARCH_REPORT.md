@@ -152,6 +152,41 @@ The most defensible interpretation is that the model learns a reproducible
 clean-control signal within some cohorts, but that tissue composition, cycle
 phase, disease phenotype, and platform alter the observed gene relationships.
 
+## Clinical metadata and sensitivity closure
+
+A final harmonized metadata audit covered eight studies, 355 sample records,
+and 324 deposited patients or explicitly marked patient proxies. It preserved
+missingness rather than inferring unreported clinical variables. No verified
+patient-level age or participant-country data were available across the
+assembled sources. Disease stage was available only in selected GSE51981 and
+GSE120103 records, while cycle phase was sufficiently complete in five studies
+for descriptive—but not causal—sensitivity analysis.
+
+![Cross-cohort clinical metadata audit](assets/08_cross_cohort_metadata_audit.png)
+
+The frozen GSE51981 predictions were then evaluated separately within recorded
+cycle phases. When repeated out-of-fold predictions were averaged per patient,
+the frozen signature had ROC-AUC 0.877 overall, 0.796 in early-secretory, 0.839
+in mid-secretory, and 0.910 in proliferative samples. The 0.877 value is a
+pooled ROC-AUC on averaged patient predictions and is distinct from the primary
+mean-across-repeats estimate of 0.860 reported above. Adding cycle phase changed
+the pooled value from 0.877 to 0.875, providing no evidence of incremental
+predictive benefit inside GSE51981.
+
+Patient-level cell-family composition was tested in the GSE179640 discovery
+atlas using all 220 possible assignments of nine case labels among 12 patients.
+The global centered-log-ratio PERMANOVA yielded R-squared 0.094 and p=0.414; no
+individual provisional cell family survived FDR correction. The largest raw
+shift was a lower epithelial fraction in endometriosis (-0.276, unadjusted
+p=0.077), but the atlas contains only three controls and cannot rule out
+composition as a contributor to cross-cohort heterogeneity.
+
+![Cycle-phase and cell-composition sensitivity](assets/09_cycle_composition_sensitivity.png)
+
+These closure analyses narrow two candidate explanations without identifying a
+causal driver of the failed GSE153740 replication. They support retaining the
+negative external result rather than repairing the signature post hoc.
+
 ## Cross-check with published literature
 
 ### What agrees with prior work
@@ -231,6 +266,8 @@ diagnostic, or causal-biological sense.
 ## Limitations
 
 - Public cohorts are small and clinically heterogeneous.
+- Verified age and participant-country metadata are unavailable for formal
+  adjustment in the assembled cohorts.
 - Clean controls are easier to distinguish than symptomatic pathology controls.
 - Some datasets use lesion tissue and others use eutopic endometrium.
 - Menstrual phase and hormonal treatment are incompletely balanced.
@@ -240,6 +277,8 @@ diagnostic, or causal-biological sense.
   definition, so internal performance is not external validation.
 - Cellular localization does not establish that a cell family causes the
   tissue-level disease effect.
+- The composition sensitivity analysis has only three controls, uses
+  provisional cell-family annotations, and is not independent of discovery.
 - Gene expression association and model importance do not establish causality.
 
 ## Final conclusion
@@ -248,7 +287,7 @@ EndoSignature-Net demonstrates a rigorous end-to-end computational research
 workflow: metadata auditing, sparse single-cell QC, patient-level pseudobulk
 discovery, multi-study evidence integration, architecture benchmarking,
 patient-level validation, locked external testing, negative-result reporting,
-and interpretable failure analysis.
+interpretable failure analysis, and predeclared sensitivity closure.
 
 The project supports a research signature with partial external transfer, not a
 clinical diagnostic. Its most important lesson is that internally stable
@@ -257,3 +296,7 @@ composition, and assay technology change. That conclusion is scientifically
 consistent with the endometriosis literature and is the reason the project is
 complete rather than continuously retuned.
 
+**Project status: complete as a portfolio-scale computational research study.**
+Further biomarker development should begin as a new preregistered study with a
+larger independent cohort, clinically harmonized covariates, disease controls,
+and a deployable single-sample normalization protocol.

@@ -11,3 +11,5 @@ python-igraph
 leidenalg
 pytest
 statsmodels
+streamlit
+plotly

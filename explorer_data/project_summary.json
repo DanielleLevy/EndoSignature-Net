@@ -1,0 +1,17 @@
+{
+  "title": "EndoSignature Explorer",
+  "signature_size": 12,
+  "studies_audited": 8,
+  "sample_records": 355,
+  "patient_records_or_proxies": 324,
+  "internal_mean_auc": 0.86,
+  "cross_cohort_core": [
+    "PDZD2",
+    "ACSS2"
+  ],
+  "composition_permanova_r2": 0.094,
+  "composition_permanova_p": 0.414,
+  "project_status": "Completed portfolio-scale computational research study",
+  "claim_boundary": "Research exploration only. The signature is not a validated diagnostic test, and gene associations do not establish causality.",
+  "data_version": "v1.0"
+}

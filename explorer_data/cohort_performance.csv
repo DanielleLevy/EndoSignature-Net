@@ -1,0 +1,4 @@
+cohort,analysis,roc_auc,ci_lower,ci_upper,n_patients,status,is_external
+GSE51981,Internal repeated patient-level validation,0.8596065699006875,,,111,Promising internal discrimination,False
+GSE212787,Locked external application,0.7380952380952381,0.4285714285714286,0.9761904761904762,13,Promising but inconclusive,True
+GSE153740,Locked mid-secretory external application,0.125,0.0,0.5,8,Not replicated,True

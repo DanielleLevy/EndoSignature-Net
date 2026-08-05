@@ -21,6 +21,26 @@ failure.
 Read the illustrated [final research report](docs/FINAL_RESEARCH_REPORT.md) or
 the [portfolio summary](docs/PORTFOLIO_SUMMARY.md).
 
+**Status:** complete as a portfolio-scale computational research study. Further
+biomarker development is intentionally scoped as a new preregistered study, not
+continued retuning on the external cohorts reported here.
+
+## Interactive Research Explorer
+
+The read-only **EndoSignature Explorer** turns the frozen study outputs into an
+interactive research narrative: cross-cohort performance, gene-level direction
+changes, interpretability, cycle and cell-composition sensitivity, metadata
+missingness, and explicit claim boundaries.
+
+```bash
+python build_explorer_data.py
+streamlit run streamlit_app.py
+```
+
+The app reads a small committed aggregate bundle under `explorer_data/`; it does
+not expose patient-level expression, retrain the model, or tune against external
+outcomes. See [`docs/EXPLORER.md`](docs/EXPLORER.md) for details.
+
 ## Project at a glance
 
 <p align="center">
@@ -1666,3 +1686,58 @@ not a universal diagnostic classifier. No reduced panel is fitted after
 observing external outcomes. Tables are stored in
 `output/reports/model_interpretability/v1.0/` and the summary figure in
 `output/eda_plots/model_interpretability/v1.0/`.
+
+### Cross-cohort clinical metadata audit
+
+Run the harmonized patient-level audit:
+
+```bash
+python run_cross_cohort_metadata_audit.py
+```
+
+The audit combines verified metadata from eight GEO studies without inventing
+unreported covariates or treating study location as participant origin. It
+contains 355 sample records representing 324 deposited patients or explicit
+patient proxies. Age and participant country are unavailable across all eight
+cohorts; disease stage is usable only within selected GSE51981 and GSE120103
+records. Menstrual-cycle phase is sufficiently recorded in five studies for a
+bounded descriptive sensitivity analysis, but it is confounded with cohort,
+platform, tissue, and phenotype and cannot support a causal explanation of the
+external-validation gap.
+
+![Cross-cohort clinical metadata audit](docs/assets/08_cross_cohort_metadata_audit.png)
+
+The justified next experiment is a cycle-phase and cell-composition sensitivity
+audit, not another outcome-tuned classifier. Full methods, limitations, and the
+dataset inventory are documented in
+[`docs/CROSS_COHORT_METADATA_AUDIT.md`](docs/CROSS_COHORT_METADATA_AUDIT.md).
+Versioned outputs are stored under
+`output/reports/cross_cohort_metadata/v1.0/` and
+`output/eda_plots/cross_cohort_metadata/v1.0/`.
+
+### Cycle-phase and cell-composition sensitivity
+
+Run the bounded sensitivity audit:
+
+```bash
+python run_cycle_composition_sensitivity.py
+```
+
+The frozen GSE51981 model retained useful discrimination within each recorded
+cycle phase (ROC-AUC 0.796-0.910). Adding cycle phase to the signature changed
+overall repeated out-of-fold ROC-AUC from 0.877 to 0.875, providing no evidence
+of incremental predictive benefit. This does not establish that cycle is
+irrelevant across cohorts, where phase remains confounded with study, tissue,
+and platform.
+
+In the 12-patient GSE179640 discovery atlas, an exact patient-label permutation
+test found no supported global cell-composition difference (CLR PERMANOVA
+R-squared 0.094, p=0.414), and no individual provisional cell family survived
+FDR correction. Numerical epithelial and stromal shifts remain exploratory
+because the cohort includes only three controls.
+
+![Cycle and cell-composition sensitivity](docs/assets/09_cycle_composition_sensitivity.png)
+
+The audit narrows—but does not causally explain—the external replication gap.
+Methods and claim boundaries are documented in
+[`docs/CYCLE_COMPOSITION_SENSITIVITY.md`](docs/CYCLE_COMPOSITION_SENSITIVITY.md).
